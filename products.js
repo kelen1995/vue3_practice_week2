@@ -29,6 +29,7 @@ function checkUser() {
     })
     .catch(err => {
         console.log(err.response);
+        window.location = '/index.html'
     })
 }
 
