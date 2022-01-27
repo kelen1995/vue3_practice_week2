@@ -23,6 +23,12 @@ app.mount('#app');
 
 // 登入
 function login() {
+    // 檢查帳號/密碼是否有輸入
+    if(!this.email || !this.password) {
+        alert("請輸入帳號密碼");
+        return;
+    }
+
     axios.post(`${this.apiUrl}/admin/signin`, {
         'username': this.email,
         'password': this.password
@@ -34,6 +40,8 @@ function login() {
     .catch(err => {
         console.log(err.response);
         alert(err.response.data.message);
+        this.email = '';
+        this.password = '';
     })
 }
 
